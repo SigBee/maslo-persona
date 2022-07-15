@@ -21,6 +21,10 @@ export {
   States,
 };
 
+// Disabled because sounds were annoying to users, and an earlier change
+// seems to have broken them anyway, so they were just throwing errors.
+const ENABLE_SOUNDS = false;
+
 type StateRunnerFunction = (args?: StateRunnerArgs) => TimelineMax;
 export type StateRunners = { [key in States]: StateRunnerFunction } & { undefinedToIdle: StateRunnerFunction };
 
@@ -31,7 +35,7 @@ export function createStates(persona: IPersonaCore): StateRunners {
   return {
     init() {
       const timeline = createTimeline();
-      persona?.audio?.play(AudioTracks.Open);
+      ENABLE_SOUNDS && persona?.audio?.play(AudioTracks.Open);
 
       for (let i = 0; i < persona.rings.length; i++) {
         const ring = persona.rings[i];
@@ -109,7 +113,7 @@ export function createStates(persona: IPersonaCore): StateRunners {
     joy() {
       const timeline = createTimeline();
 
-      persona?.audio?.play(AudioTracks.Joy);
+      ENABLE_SOUNDS && persona?.audio?.play(AudioTracks.Joy);
       const expandTimeOn = 0.5;
       const expandTimeOff = 0.5;
       const expandSpread = 0.2;
@@ -185,7 +189,7 @@ export function createStates(persona: IPersonaCore): StateRunners {
 
     surprise() {
       const timeline = createTimeline();
-      persona?.audio?.play(AudioTracks.Surprise);
+      ENABLE_SOUNDS && persona?.audio?.play(AudioTracks.Surprise);
 
       for (let i = 0; i < persona.rings.length; i++) {
         const ringData = persona.rings[i].data;
@@ -239,7 +243,7 @@ export function createStates(persona: IPersonaCore): StateRunners {
     upset() {
       const timeline = createTimeline();
 
-      persona?.audio?.play(AudioTracks.Upset);
+      ENABLE_SOUNDS && persona?.audio?.play(AudioTracks.Upset);
       const timeIn = 1.5;
       const timeOut = 1;
       const delayInOut = 1;
@@ -300,7 +304,7 @@ export function createStates(persona: IPersonaCore): StateRunners {
     yes() {
       const timeline = createTimeline();
 
-      persona?.audio?.play(AudioTracks.Yes);
+      ENABLE_SOUNDS && persona?.audio?.play(AudioTracks.Yes);
 
       const data = persona.animationData;
 
@@ -373,7 +377,7 @@ export function createStates(persona: IPersonaCore): StateRunners {
 
     no() {
       const timeline = createTimeline();
-      persona?.audio?.play(AudioTracks.No);
+      ENABLE_SOUNDS && persona?.audio?.play(AudioTracks.No);
 
       for (let i = 0; i < persona.rings.length; i++) {
         const ringData = persona.rings[i].data;
@@ -426,7 +430,7 @@ export function createStates(persona: IPersonaCore): StateRunners {
 
     hey() {
       const timeline = createTimeline();
-      persona?.audio?.play(AudioTracks.Hey);
+      ENABLE_SOUNDS && persona?.audio?.play(AudioTracks.Hey);
 
       for (let i = 0; i < persona.rings.length; i++) {
         const ringData = persona.rings[i].data;
@@ -468,7 +472,7 @@ export function createStates(persona: IPersonaCore): StateRunners {
 
     shake() {
       const timeline = createTimeline();
-      persona?.audio?.play(AudioTracks.Shake);
+      ENABLE_SOUNDS && persona?.audio?.play(AudioTracks.Shake);
 
       for (let i = 0; i < persona.rings.length; i++) {
         const ringData = persona.rings[i].data;
@@ -511,7 +515,7 @@ export function createStates(persona: IPersonaCore): StateRunners {
 
     tap() {
       const timeline = createTimeline();
-      persona?.audio?.play(AudioTracks.Tap);
+      ENABLE_SOUNDS && persona?.audio?.play(AudioTracks.Tap);
 
       for (let i = 0; i < persona.rings.length; i++) {
         const ringData = persona.rings[i].data;
@@ -663,7 +667,7 @@ export function createStates(persona: IPersonaCore): StateRunners {
 
     question() {
       const timeline = createTimeline();
-      persona?.audio?.play(AudioTracks.Question);
+      ENABLE_SOUNDS && persona?.audio?.play(AudioTracks.Question);
 
       const timeIn = 0.4;
       const delay = 0.4;
