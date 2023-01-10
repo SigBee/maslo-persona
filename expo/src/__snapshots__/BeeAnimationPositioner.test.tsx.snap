@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BeeAnimationPositioner Check if it renders correctly 1`] = `
+<View
+  collapsable={false}
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "height": 375,
+      "left": 375,
+      "position": "absolute",
+      "top": 667,
+      "transform": Array [
+        Object {
+          "translateX": -187.5,
+        },
+        Object {
+          "translateY": -428.57142857142856,
+        },
+      ],
+      "width": 375,
+    }
+  }
+/>
+`;
