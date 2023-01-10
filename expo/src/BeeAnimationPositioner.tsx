@@ -21,7 +21,7 @@ const BeeAnimationPositioner = observer(function(props: Props) {
 
     const prevX = useRef(props.nextPosition.x);
     const prevY = useRef(-props.nextPosition.y);
-    const anim = useRef(new Animated.Value(1)).current;
+    const anim = useRef(new Animated.Value(0)).current;
     const animValue = useRef(1);
     const timeOut = useRef(null);
 
