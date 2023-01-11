@@ -4,6 +4,8 @@ import renderer from 'react-test-renderer';
 
 import {BeeAnimationPositioner} from './BeeAnimationPositioner';
 
+jest.useFakeTimers();
+
 describe('BeeAnimationPositioner', () => {
 
     it('Check if it renders correctly', () => {
